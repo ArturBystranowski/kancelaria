@@ -5,11 +5,13 @@
 	font-size: 16px;
 	font-family: "Jura", sans-serif;
 	scroll-behavior: smooth;
+	box-sizing: border-box;
 }
 
 body {
 	margin: 0 auto;
 	max-width: 1200px;
+	min-width: 360px;
 }
 
 .background {
@@ -31,6 +33,7 @@ nav {
 	right: 0px;
 	display: flex;
 	align-items: center;
+	justify-content: center;
 	background-color: black;
 }
 header {
@@ -50,13 +53,19 @@ header span {
 
 .nav-list {
 	width: 100%;
+	max-width: 800px;
 	align-self: flex-end;
 	display: flex;
-	justify-content: space-evenly;
+	justify-content: space-between;
 	text-align: center;
 	align-items: end;
 	padding-left: 0;
+	padding-right: 30px;
 }
+.nav-ham-icon {
+	display: none;
+}
+
 .nav-list-ham {
 	display: none;
 }
@@ -71,7 +80,7 @@ header span {
 	padding: 10px;
 	text-decoration: none;
 	opacity: 0.5;
-	transition: 0.4s;
+	transition: 0.6s;
 }
 
 .nav-link a:hover {
@@ -90,8 +99,9 @@ header span {
 .home {
 	display: flex;
 	justify-content: space-around;
-	width: 90vw;
-	height: 60vh;
+	width: 100vw;
+	max-width: 1200px;
+	height: 100vh;
 	padding: 30px;
 	text-align: center;
 	padding-top: 150px;
@@ -102,6 +112,8 @@ header span {
 	border-left: solid 1px white;
 	padding: 0 40px;
 	width: 40%;
+	min-width: 290px;
+	max-height: 480px;
 	overflow: auto;
 }
 
@@ -117,6 +129,8 @@ header span {
 	justify-content: space-evenly;
 	text-align: left;
 	width: 40%;
+	max-height: 480px;
+
 	overflow: auto;
 }
 
@@ -138,25 +152,38 @@ header span {
 	flex-direction: column;
 	justify-content: space-evenly;
 	width: 20%;
+	max-height: 480px;
+
 	overflow: auto;
 }
 
 .office {
 	display: flex;
 	justify-content: space-around;
-	width: 90vw;
+	width: 100vw;
+	max-width: 1200px;
 	height: 100vh;
 	padding: 30px;
-	text-align: center;
 	padding-top: 150px;
 	overflow: auto;
 }
+.about-me {
+	padding: 50px;
+}
+
+.img-lawyer {
+	max-width: 500px;
+	max-height: 500px;
+	border-radius: 40px;
+}
+
 .service {
 	display: flex;
 	justify-content: space-around;
 	flex-wrap: wrap;
 	width: 100vw;
-	height: 100vh;
+	max-width: 1200px;
+	min-height: 100vh;
 	padding-top: 150px;
 	margin: 0;
 	text-align: center;
@@ -170,49 +197,81 @@ header span {
 }
 .service section {
 	margin: 10px 0 0 0;
-	padding: 10px 30px;
+	padding: 10px 20px;
 	border-width: 1px 0px 0px 5px;
 	border-color: #6a9abb;
 	border-style: solid;
 	background-color: rgba(255, 255, 255, 0.1);
 	text-align: left;
+	cursor: pointer;
+	transition: 0.4s ease-in-out;
+}
+.service .service-header:hover,
+.service .active {
+	color: black;
+	background: rgb(255, 255, 255, 0.8);
+	font-weight: 700;
 }
 
 #service .service-body.open {
 	margin-top: 0;
 	border-width: 0px 0px 0px 5px;
-	max-height: 500px;
-	transition: max-height 0.5s ease-out;
+	max-height: 800px;
+	transition: max-height 0.6s ease-out;
 }
+
+.service-body ul {
+	margin-top: 10px;
+	padding-inline-start: 20px;
+	padding-inline-end: 20px;
+	list-style-type: circle;
+	list-style-position: outside;
+}
+
+.service-body .sub-ul {
+	list-style-type: "- ";
+	margin-top: 5px;
+}
+
+.service-body p {
+	padding: 0 20px;
+}
+
+.service-body h3 {
+	padding: 0 20px;
+	margin: 10px 0;
+}
+
+.service-body ul li {
+	padding-left: -20px;
+	margin-left: 20px;
+}
+
 #service .service-body {
 	max-height: 0;
 	overflow: hidden;
 	margin: 0px;
 	padding: 0px;
 	border-top-width: 0px;
-	transition: max-height 0.2s ease-out;
-}
-
-.service .active {
-	color: black;
-	background: white;
-	font-weight: 700;
+	transition: max-height 0.4s ease-out;
 }
 
 .pricing {
 	display: flex;
-	justify-content: space-around;
-	width: 90vw;
+	flex-direction: column;
+	width: 100vw;
+	max-width: 1200px;
 	height: 100vh;
 	padding: 30px;
-	text-align: center;
+	text-align: left;
 	padding-top: 150px;
 	overflow: auto;
 }
 .contact {
 	display: flex;
 	justify-content: space-around;
-	width: 90vw;
+	width: 100vw;
+	max-width: 1200px;
 	height: 100vh;
 	padding: 30px;
 	text-align: center;
@@ -235,33 +294,103 @@ input[type="submit"] {
 	position: relative;
 }
 
-@media screen and (max-width: 480px) {
-	* {
-		font-size: 16px;
+@media screen and (max-width: 1000px) {
+	.home {
+		flex-wrap: wrap;
+		height: auto;
 	}
-	.nav-list {
+	.home-intro,
+	.home-stats,
+	.home-quotes {
+		width: 90%;
+	}
+	.img-logo {
 		display: none;
 	}
-	.nav-list-ham {
-		display: block;
-		padding: 0 50px;
-		margin: 0px;
-		position: fixed;
-		height: auto;
-		width: 100vw;
-		text-align: right;
-		right: 0px;
-		top: 120px;
-		z-index: 1;
-		background-color: #29526d;
-	}
-	.nav-link-ham {
-		list-style: none;
+}
+
+@media screen and (max-width: 810px) {
+	div.link-label {
+		font-size: 12px;
 	}
 
-	.link-label {
+	header {
+		font-size: 14px;
+	}
+
+	header span {
+		font-size: 20px;
+	}
+}
+
+@media screen and (max-width: 650px) {
+	header {
+		font-size: 16px;
+		margin-left: 20px;
+	}
+
+	header span {
+		font-size: 23px;
+	}
+
+	.img-logo {
 		display: inline-block;
-		font-size: 30px;
+	}
+
+	nav {
+		justify-content: flex-start;
+	}
+	.nav-ham-icon {
+		display: inline-block;
+	}
+	.fa-bars {
+		content: "\f0c9";
+		font-size: 40px;
+		opacity: 0.5;
+		transition: 0.4s;
+	}
+
+	.nav-link {
+		display: none;
+	}
+	.nav-list {
+		justify-content: flex-end;
+		padding: 40px 40px 40px 0;
+		margin: 0;
+		cursor: pointer;
+	}
+	.nav-list:hover .fa-bars {
+		opacity: 1;
+	}
+	.nav-list-ham.active {
+		opacity: 1;
+		right: 0;
+	}
+	.nav-list-ham {
+		opacity: 0;
+		right: -200vw;
+		display: block;
+		padding: 0 30px 0 0;
+		margin: 0px;
+		position: fixed;
+		height: 100vh;
+		width: 100vw;
+		text-align: right;
+		top: 120px;
+		z-index: 1;
+		padding-right: 20px;
+		background-color: #29526d;
+		transition: 0.8s ease-in-out;
+	}
+
+	.nav-link-ham {
+		list-style: none;
+		border-bottom: solid 1px #547e99;
+	}
+
+	div.link-label {
+		display: inline-block;
+		font-size: 28px;
 		margin: 30px auto;
 	}
 	.nav-icon {
@@ -277,18 +406,13 @@ input[type="submit"] {
 		text-align: left;
 		margin: 0 10px;
 		width: auto;
-	}
-	.img-logo {
-		display: none;
+		font-size: 18px;
 	}
 
-	.home {
-		flex-wrap: wrap;
-		height: auto;
+	header span {
+		font-size: 26px;
 	}
-	.home-intro,
-	.home-stats,
-	.home-quotes {
-		width: 90%;
+	.home-stats emp {
+		font-size: 40px;
 	}
 }
