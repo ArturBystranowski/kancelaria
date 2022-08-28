@@ -16,7 +16,7 @@ body {
 }
 
 .background {
-	background-image: url(background-large.jpg);
+	background-image: url(background-large2.jpg);
 	background-repeat: no-repeat;
 	background-size: cover;
 	position: fixed;
@@ -27,7 +27,8 @@ body {
 	z-index: -1;
 }
 
-nav {
+nav,
+footer {
 	width: 100vw;
 	height: 120px;
 	position: fixed;
@@ -38,6 +39,34 @@ nav {
 	background-color: black;
 	z-index: 10;
 }
+
+footer {
+	height: 40px;
+	bottom: 0;
+}
+
+.footer-wrapper {
+	width: 100vw;
+	max-width: 1100px;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
+	align-items: center;
+}
+.footer-wrapper div {
+	margin: 0 10px;
+	font-size: 12px;
+}
+
+.footer-wrapper a,
+.footer-wrapper adress,
+.footer-wrapper i {
+	font-size: 12px;
+}
+.footer-wrapper i {
+	padding: 5px;
+}
+
 header {
 	width: auto;
 	text-align: right;
@@ -96,6 +125,15 @@ header span {
 .nav-icon-small {
 	height: 20px;
 	margin-bottom: 10px;
+}
+
+.section-header {
+	position: absolute;
+	left: 30px;
+	top: 120px;
+	color: #6a9abb;
+	font-weight: 700;
+	font-size: 18px;
 }
 
 .home {
@@ -191,6 +229,7 @@ header span {
 }
 
 .office {
+	position: relative;
 	display: flex;
 	justify-content: space-around;
 	width: 100vw;
@@ -211,6 +250,7 @@ header span {
 }
 
 .service {
+	position: relative;
 	display: flex;
 	justify-content: space-around;
 	flex-wrap: wrap;
@@ -290,6 +330,7 @@ header span {
 }
 
 .pricing {
+	position: relative;
 	display: flex;
 	flex-direction: column;
 	width: 100vw;
@@ -301,15 +342,19 @@ header span {
 	overflow: auto;
 }
 .contact {
+	position: relative;
 	display: flex;
 	justify-content: space-around;
 	width: 100vw;
 	max-width: 1200px;
 	height: 100vh;
 	padding: 30px;
-	text-align: center;
-	padding-top: 150px;
+	padding-top: 180px;
 	overflow: auto;
+}
+
+.contact-info {
+	margin: 0 10px 10px 10px;
 }
 
 input,
@@ -470,5 +515,9 @@ input[type="submit"] {
 		width: 80vw;
 		max-width: 500px;
 		min-width: 350px;
+	}
+
+	footer {
+		position: relative;
 	}
 }

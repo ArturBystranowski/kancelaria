@@ -26,7 +26,7 @@ hamBtn.addEventListener("click", () => {
 	hamMenu.classList.toggle("active");
 });
 document.addEventListener("click", (e) => {
-	if (e.target.matches(".link-label")) {
+	if (e.target.matches(".link-label") || e.target.matches(".nav-icon")) {
 		hamMenu.classList.remove("active");
 	}
 });
