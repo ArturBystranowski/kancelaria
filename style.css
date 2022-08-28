@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Jura:wght@400;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap");
 
 * {
 	color: white;
@@ -35,6 +36,7 @@ nav {
 	align-items: center;
 	justify-content: center;
 	background-color: black;
+	z-index: 10;
 }
 header {
 	width: auto;
@@ -107,10 +109,26 @@ header span {
 	padding-top: 150px;
 }
 
+.flag {
+	background-color: #6a9abb;
+	color: black;
+	font-size: 16px;
+	font-weight: 700;
+	padding: 5px 10px;
+	border-radius: 0 10px 10px 0;
+	position: absolute;
+	left: 0;
+	top: 0;
+}
 .home-intro {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-evenly;
+	align-items: flex-start;
 	text-align: left;
 	border-left: solid 1px white;
-	padding: 0 40px;
+	padding: 0 20px;
 	width: 40%;
 	min-width: 290px;
 	max-height: 480px;
@@ -120,15 +138,27 @@ header span {
 .home-intro p {
 	text-indent: 30px;
 }
+.home-intro p:first-of-type {
+	padding-top: 30px;
+}
+
+.home-intro .signature {
+	font-family: "Dancing Script", sans-serif;
+	margin-right: 20px;
+	font-size: 20px;
+	margin-top: 0;
+	align-self: flex-end;
+}
 
 .home-stats {
+	position: relative;
 	border-left: solid 1px white;
-	padding: 0 40px;
+	padding: 0 20px;
 	display: flex;
 	flex-direction: column;
 	justify-content: space-evenly;
 	text-align: left;
-	width: 40%;
+	width: 35%;
 	max-height: 480px;
 
 	overflow: auto;
@@ -144,16 +174,19 @@ header span {
 	align-items: center;
 	padding-right: 0;
 }
+.home-stats p:first-of-type {
+	padding-top: 30px;
+}
 
 .home-quotes {
+	position: relative;
 	border-left: solid 1px white;
-	padding: 40px;
+	padding: 30px;
 	display: flex;
 	flex-direction: column;
 	justify-content: space-evenly;
-	width: 20%;
+	width: 25%;
 	max-height: 480px;
-
 	overflow: auto;
 }
 
@@ -168,12 +201,12 @@ header span {
 	overflow: auto;
 }
 .about-me {
-	padding: 50px;
+	padding: 0 30px;
 }
 
 .img-lawyer {
-	max-width: 500px;
-	max-height: 500px;
+	max-width: 400px;
+	max-height: 400px;
 	border-radius: 40px;
 }
 
@@ -285,7 +318,7 @@ textarea {
 	color: black;
 	width: 500px;
 	padding: 5px;
-	margin: 10px;
+	margin: 0 10px 10px;
 	border: none;
 }
 
@@ -295,17 +328,33 @@ input[type="submit"] {
 }
 
 @media screen and (max-width: 1000px) {
-	.home {
+	.home,
+	.office,
+	.contact {
 		flex-wrap: wrap;
 		height: auto;
+		padding-left: 10px;
+		padding-right: 10px;
 	}
 	.home-intro,
 	.home-stats,
 	.home-quotes {
-		width: 90%;
+		width: 100%;
 	}
 	.img-logo {
 		display: none;
+	}
+
+	.img-lawyer {
+		max-width: 200px;
+		max-height: 200px;
+	}
+	.service {
+		display: block;
+	}
+	.service div {
+		width: 100%;
+		padding: 0 20px;
 	}
 }
 
@@ -414,5 +463,12 @@ input[type="submit"] {
 	}
 	.home-stats emp {
 		font-size: 40px;
+	}
+
+	input,
+	textarea {
+		width: 80vw;
+		max-width: 500px;
+		min-width: 350px;
 	}
 }

@@ -23,6 +23,10 @@ const openMenu = (e) => {
 
 serviceList.addEventListener("click", openMenu);
 hamBtn.addEventListener("click", () => {
-	console.log("test");
 	hamMenu.classList.toggle("active");
+});
+document.addEventListener("click", (e) => {
+	if (e.target.matches(".link-label")) {
+		hamMenu.classList.remove("active");
+	}
 });
